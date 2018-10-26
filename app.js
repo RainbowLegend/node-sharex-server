@@ -30,7 +30,7 @@ if(c.discordToken && c.discordToken !== undefined && c.discrdToken !== null) {
   let commands = [];
   fs.readdir("./commands/", (err, files) => {
     files.forEach(file => {
-      if(file.toString().indexOf("_") != 0 && file.toString().includes(".js")){
+      if(file.toString().indexOf("_") !== 0 && file.toString().includes(".js")){
         commands.push(require(`./commands/${file.toString()}`))
         console.log(`Loaded Command: ${file.toString()}`)
       }
@@ -47,7 +47,7 @@ if(c.discordToken && c.discordToken !== undefined && c.discrdToken !== null) {
     const args = msg.content.slice(prefix.length).trim().split(/ +/g)
     const command = args.shift().toString().toLowerCase()
     for(i=0;commands.length>i;i++) {
-      if(commands[i].command == command) {
+      if(commands[i].command === command) {
         await commands[i].execute(bot, msg, args, commands, prefix)
         break
       }
@@ -154,7 +154,7 @@ app.post("/api/paste", (req, res) => {
                 <!DOCTYPE html>
                 <html>
                 <head>
-                <meta name="theme-color" content="#DC603A">
+                <meta name="theme-color" content="#5DADE2">
                 <meta property="og:title" content="HPaste">
                 <meta property="og:description" content="${data.match(/.{1,297}/g)[0]}...">
                 <link rel="stylesheet" href="atom-one-dark.css">
@@ -212,7 +212,7 @@ app.post("/api/files", (req, res) => {
                 <!DOCTYPE html>
                 <html>
                 <head>
-                <meta name="theme-color" content="#DC603A">
+                <meta name="theme-color" content="#5DADE2">
                 <meta property="og:title" content="HPaste">
                 <meta property="og:description" content="${data.match(/.{1,297}/g)[0]}...">
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -268,7 +268,7 @@ app.post("/api/files", (req, res) => {
                   <!DOCTYPE html>
                   <html>
                   <head>
-                  <meta name="theme-color" content="#DC603A">
+                  <meta name="theme-color" content="#5DADE2">
                   <meta property="og:title" content="HPaste">
                   <meta property="og:description" content="${data.match(/.{1,297}/g)[0]}...">
                   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
